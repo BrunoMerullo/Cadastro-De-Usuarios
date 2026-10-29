@@ -1,8 +1,16 @@
-from cadastro_usuario import lista_usuarios
+from controllers.cadastro_usuario import lista_usuarios
 
-def listar_usuarios():
-    print("Lista de Usuários!")
-    for i in lista_usuarios:
-        print(f"Nome: {i['nome']} | Idade: {i['idade']} | Email: {i['email']}")
-
-lista_usuarios()
+def listar():
+    print("Lista de Usuários!\n")
+    
+    for usuario in lista_usuarios:
+        if not isinstance(usuario, dict):
+            print(f"Registro inválido: {usuario!r}")
+        else:
+            print(
+                f"Nome: {usuario['nome']}, "
+                f"Idade: {usuario['idade']}, "
+                f"Email: {usuario['email']}"
+            )
+    print("\nFim da lista de usuários!")
+listar()
